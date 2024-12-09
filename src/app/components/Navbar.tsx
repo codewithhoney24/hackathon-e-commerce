@@ -11,11 +11,10 @@ export function Navbar() {
 
   return (
     <nav className="w-full h-[58px] text-center justify-center bg-white">
-  <div className="container mx-auto flex items-center justify-between py-[10px]">
-      {/* Logo */}
-      <div className="font-montserrat font-bold text-[24px] leading-[32px] tracking-[0.1px] ml-[-4rem]   sm-ml-[30px] mr-[30px] sm:mr-[40px] md:mr-[50px] lg:mr-[60px]">
+ <div className="font-Montserrat font-bold text-[24px] leading-[32px] tracking-[0.1px]   ">
         Bandage
       </div>
+   
    
   
   
