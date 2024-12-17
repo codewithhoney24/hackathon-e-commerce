@@ -69,7 +69,7 @@ export function Navbar() {
         {/* Right Icons: Login, Search, Cart, Heart */}
        
 
-        <div className="flex items-center cursor-pointer gap-6 lg:mr-[6rem]">
+        <div className="flex items-center cursor-pointer gap-6 lg:mr-[5rem]">
   {/* Login Icon (Hidden on small screens) */}
   <button className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] text-[#23A6F0] hidden md:flex items-center gap-2">
     <FaRegUser className="text-[#23A6F0] w-[12px] h-[12px]" />
