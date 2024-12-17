@@ -9,7 +9,7 @@ export default function FollowUsSection() {
     {/* Left Section: Contact Info */}
     <div className=" container max-auto  flex items-center gap-5 sm:gap-10 w-full sm:w-auto justify-center sm:justify-start">
   
-        <div className="flex items-center gap-2 ml-12 lg:mr-[-8rem]">
+        <div className="flex items-center gap-2 ml-12 lg:mr-[-10rem]">
           <HiOutlinePhone className="text-white w-[16px] h-[16px] " />
           <p className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] ">(225) 555-0118</p>
         </div>
