@@ -13,7 +13,7 @@ export default function FollowUsSection() {
           <HiOutlinePhone className="text-white w-[16px] h-[16px] " />
           <p className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] ">(225) 555-0118</p>
         </div>
-        <div className="flex items-center  lg:mr-[2rem]   ml-54">
+        <div className="flex items-center  lg:mr-[2rem]   ml-56">
   <TfiEmail className="text-white text-sm w-[16px] h-[16px]" />
   <p className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] md:pl-2">
     michelle.rivera@example.com
