@@ -21,7 +21,7 @@ export function Navbar() {
    
   
         {/* Navigation Links */}
-        <ul className=" absolute hidden sm:flex sm:m-[24px]  sm:item-center  md:flex pl-[20rem] items-center gap-6 ml-3">
+        <ul className=" absolute hidden sm:flex sm:m-[24px]  sm:item-center  md:flex pl-[20rem] items-center gap-6 ml-2">
 
         <li className="font-montserrat font-bold text-[14px] leading-[24px] tracking-[0.2px] text-[#737373]">
   <a href="/" className="hover:text-gray-700">Home</a>
