@@ -588,7 +588,7 @@ const ProductOne = () => {
 
 
               <footer className="py-6 bg-white w-[1440px] mx-auto   ">
-      <div className="flex justify-between items-center py-12 px-40 mx-auto w-[1440px]  bg-[#FAFAFA]">
+      <div className="flex justify-between items-center py-12 px-10 mx-auto w-[1440px]  bg-[#FAFAFA]">
         {/* Left: Text */}
         <h2 className="text-[24px] font-bold text-[#252B42]">Bandage</h2>
 
