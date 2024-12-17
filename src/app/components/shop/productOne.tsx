@@ -588,7 +588,7 @@ const ProductOne = () => {
 
 
               <footer className="py-6 bg-white w-[1440px] mx-auto   ">
-      <div className="flex justify-between items-center py-12 px-10 mx-auto w-[1440px]  bg-[#FAFAFA]">
+      <div className="flex justify-between items-center py-12 px-80 mx-auto w-[1440px]  bg-[#FAFAFA]">
         {/* Left: Text */}
         <h2 className="text-[24px] font-bold text-[#252B42]">Bandage</h2>
 
@@ -656,7 +656,7 @@ const ProductOne = () => {
           </div>
 
           {/* Get in Touch */}
-          <div className="flex-1 min-w-[150px]">
+          <div className="flex-1 min-w-[150px] ml-20">
             <h3 className="text-lg font-bold text-[#252B42] text-[16px] mb-2">Get In Touch</h3>
             <div>
               <div className="flex">
