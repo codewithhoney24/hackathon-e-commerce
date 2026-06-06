@@ -2,20 +2,29 @@ import { NextResponse } from 'next/server';
 import { createClient } from 'next-sanity';
 import { auth } from '@clerk/nextjs/server';
 
-const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: '2024-06-05',
-  useCdn: false,
-  token: process.env.SANITY_API_TOKEN, // Requires a token with write access
-});
-
 export async function POST(req: Request) {
   try {
     const { userId } = await auth();
     if (!userId) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
+
+    const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
+    const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
+    const token = process.env.SANITY_API_TOKEN;
+
+    if (!projectId || !dataset || !token) {
+      console.error('Missing Sanity environment variables');
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
+    const client = createClient({
+      projectId,
+      dataset,
+      apiVersion: '2024-06-05',
+      useCdn: false,
+      token,
+    });
 
     const body = await req.json();
     const { customerName, email, phone, address, city, totalPrice, items } = body;
