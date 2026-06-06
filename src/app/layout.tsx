@@ -28,27 +28,19 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  // Use a valid-format placeholder if the key is missing to prevent build-time crashes.
+  // Clerk components (like those in Navbar) require a ClerkProvider to be present.
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY || "pk_test_bm90LXJlYWwta2V5LWZvci1idWlsZC10aW1lLXVubHk=";
 
-  const content = (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Toaster position="bottom-right" />
-        {children}
-        <FloatingCart />
-      </body>
-    </html>
+  return (
+    <ClerkProvider publishableKey={publishableKey}>
+      <html lang="en">
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+          <Toaster position="bottom-right" />
+          {children}
+          <FloatingCart />
+        </body>
+      </html>
+    </ClerkProvider>
   );
-
-  // If we have a key, use ClerkProvider. If not, just render the app.
-  // This prevents the build from crashing if the key is missing or invalid.
-  if (publishableKey && publishableKey.startsWith('pk_')) {
-    return (
-      <ClerkProvider publishableKey={publishableKey}>
-        {content}
-      </ClerkProvider>
-    );
-  }
-
-  return content;
 }
