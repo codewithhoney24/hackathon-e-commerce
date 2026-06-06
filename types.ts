@@ -1,8 +1,16 @@
 export interface Product {
-    image: string;
+    _id: string;
     name: string;
-    department: string;
-    originalPrice: string;
-    discountedPrice: string;
-    colors: string[];
+    slug: string;
+    description?: string;
+    price: number;
+    discountPercentage?: number;
+    imageUrl: string;
+    category?: string;
+    stock?: number;
+    isNew?: boolean;
+    tags?: string[];
+    // For UI compatibility if needed
+    department?: string;
+    colors?: string[];
   }

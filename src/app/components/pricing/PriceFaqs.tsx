@@ -1,7 +1,15 @@
-import React from "react";
-import { FiChevronRight } from "react-icons/fi";
+"use client";
+import React, { useState } from "react";
+import { FiChevronRight, FiChevronDown } from "react-icons/fi";
+import Link from "next/link";
 
 const PriceFaqs = () => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   const faqs = [
     {
       question: "The quick fox jumps over the lazy dog",
@@ -36,31 +44,42 @@ const PriceFaqs = () => {
   ];
 
   return (
-    <div className="mt-10 py-10 flex flex-col justify-center items-center">
+    <div className="mt-10 py-10 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8">
       <div className="text-center mb-8">
-        <h2 className="text-[#252B42] font-bold text-[40px]">Pricing FAQs</h2>
-        <p className="text-[#737373] text-[20px] mt-4">
-          Problems trying to resolve the conflict between <br />
+        <h2 className="text-[#252B42] font-bold text-[32px] sm:text-[40px]">Pricing FAQs</h2>
+        <p className="text-[#737373] text-[16px] sm:text-[20px] mt-4 max-w-2xl mx-auto">
+          Problems trying to resolve the conflict between <br className="hidden sm:block" />
           the two major realms of Classical physics
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full max-w-4xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="p-4 rounded-lg shadow-sm flex flex-col gap-2"
+            className="p-4 rounded-lg shadow-sm flex flex-col gap-2 border border-transparent hover:border-gray-200 transition-all cursor-pointer"
+            onClick={() => toggleFaq(index)}
           >
-            <div className="flex items-center gap-2">
-              <FiChevronRight className="text-[#23A6F0] text-[25px]" /> {/* Icon */}
+            <div className="flex items-start sm:items-center gap-2">
+              {activeIndex === index ? (
+                <FiChevronDown className="text-[#23A6F0] text-[25px] flex-shrink-0" />
+              ) : (
+                <FiChevronRight className="text-[#23A6F0] text-[25px] flex-shrink-0" />
+              )}
               <h3 className="text-[#252B42] font-bold text-[16px]">
                 {faq.question}
               </h3>
             </div>
-            <p className="text-[#737373] text-[14px] mt-2">{faq.answer}</p>
+            {activeIndex === index && (
+              <p className="text-[#737373] text-[14px] mt-2 ml-8 transition-all duration-300">
+                {faq.answer}
+              </p>
+            )}
           </div>
         ))}
       </div>
-      <p className="text-[#737373] text-[20px] flex justify-center mt-16">Haven&apos;t got your answer? Contact our support</p>
+      <p className="text-[#737373] text-[16px] sm:text-[20px] text-center mt-12 sm:mt-16">
+        Haven&apos;t got your answer? <Link href="/contact" className="text-[#23A6F0] hover:underline">Contact our support</Link>
+      </p>
     </div>
   );
 };

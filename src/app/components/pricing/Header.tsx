@@ -64,15 +64,15 @@ const Header = () => {
           </button>
 
           {/* Login Button */}
-          <button className="hidden md:block px-4 py-2 text-[#23A6F0] rounded hover:bg-[#23A6F0] font-bold hover:text-white transition-all">
+          <Link href="/login" className="hidden md:block px-4 py-2 text-[#23A6F0] rounded hover:bg-[#23A6F0] font-bold hover:text-white transition-all">
             Login
-          </button>
+          </Link>
 
           {/* Become a member Button */}
-          <button className="hidden md:flex items-center gap-2 px-4 py-3 bg-[#23A6F0] text-white rounded-md hover:bg-[#1E90FF] transition-all">
+          <Link href="/signup" className="hidden md:flex items-center gap-2 px-4 py-3 bg-[#23A6F0] text-white rounded-md hover:bg-[#1E90FF] transition-all">
             Become a member
             <FiArrowRight className="text-lg" />
-          </button>
+          </Link>
 
           {/* Hamburger Menu */}
           <button

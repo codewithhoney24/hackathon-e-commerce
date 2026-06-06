@@ -22,8 +22,8 @@ const Header = () => {
   return (
     <div className="overflow-x-hidden">
       {/* Header Section */}
-      <div className="bg-[#23856D] py-4 hidden lg:block">
-        <div className="container mx-auto flex justify-between items-center text-white text-sm">
+      <div className="bg-[#23856D] py-4 hidden lg:block w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center text-white text-sm">
           {/* Contact Information */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
@@ -77,8 +77,8 @@ const Header = () => {
       </div>
 
       {/* Navbar Section */}
-      <div className="bg-white shadow-md border-b-2 border-[#E5E5E5] relative z-40">
-        <div className="container mx-auto flex items-center justify-between py-4">
+      <div className="bg-white shadow-md border-b-2 border-[#E5E5E5] relative z-40 w-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4">
           {/* Logo */}
           <div className="text-2xl font-bold text-[#252B42]">Bandage</div>
 
@@ -102,13 +102,13 @@ const Header = () => {
           <nav className="hidden md:flex">
             <ul className="flex gap-8 text-sm font-medium text-[#737373] relative">
               <li>
-                <Link href="#" className="hover:text-[#23A6F0] transition-all">
+                <Link href="/" className="hover:text-[#23A6F0] transition-all">
                   Home
                 </Link>
               </li>
               <li className="relative group">
                 <Link
-                  href="/product"
+                  href="/shop"
                   className="flex items-center gap-1 hover:text-[#23A6F0] transition-all"
                 >
                   Shop
@@ -124,7 +124,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href="#blog" className="hover:text-[#23A6F0] transition-all">
+                <Link href="/blog" className="hover:text-[#23A6F0] transition-all">
                   Blog
                 </Link>
               </li>
@@ -137,8 +137,8 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/pages" className="hover:text-[#23A6F0] transition-all">
-                  Pages
+                <Link href="/pricing" className="hover:text-[#23A6F0] transition-all">
+                  Pricing
                 </Link>
               </li>
             </ul>
@@ -146,10 +146,14 @@ const Header = () => {
 
           {/* Action Icons for Desktop */}
           <div className="hidden md:flex items-center gap-6 text-[#23A6F0]">
-            <button className="text-sm font-medium">Login/Register</button>
+            <Link href="/login" className="text-sm font-medium">Login/Register</Link>
             <FiSearch className="text-lg cursor-pointer" />
-            <FiShoppingCart className="text-lg cursor-pointer" />
-            <FiHeart className="text-lg cursor-pointer" />
+            <Link href="/cart">
+               <FiShoppingCart className="text-lg cursor-pointer" />
+            </Link>
+            <Link href="/wishlist">
+               <FiHeart className="text-lg cursor-pointer" />
+            </Link>
           </div>
         </div>
 
@@ -157,7 +161,7 @@ const Header = () => {
         <div
           className={`${
             isMenuOpen ? "block" : "hidden"
-          } md:hidden bg-white shadow-md transition-all duration-300 ease-in-out`}
+          } md:hidden bg-white shadow-md transition-all duration-300 ease-in-out absolute w-full left-0 z-50`}
         >
           <ul className="flex flex-col gap-6 p-4 text-[20px] text-[#737373] text-center">
             <li>
@@ -166,13 +170,13 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/product" className="hover:text-[#23A6F0] transition-all">
-                Product
+              <Link href="/shop" className="hover:text-[#23A6F0] transition-all">
+                Shop
               </Link>
             </li>
             <li>
               <Link
-                href="/about"
+                href="/pricing"
                 className="hover:text-[#23A6F0] transition-all"
               >
                 Pricing
@@ -184,6 +188,14 @@ const Header = () => {
                 className="hover:text-[#23A6F0] transition-all"
               >
                 Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/about"
+                className="hover:text-[#23A6F0] transition-all"
+              >
+                About
               </Link>
             </li>
           </ul>

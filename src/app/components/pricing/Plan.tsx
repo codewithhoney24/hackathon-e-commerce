@@ -2,35 +2,36 @@
 import Image from "next/image";
 import { useState } from "react";
 import { FiCheck } from "react-icons/fi";
+import Link from "next/link";
 
 const Plan = () => {
   const [isMonthly, setIsMonthly] = useState(true);
 
   return (
-    <div className="bg-[#FAFAFA] py-12">
-      <div className="text-center mt-14">
-        <h3 className="text-[#252B42] font-bold text-[40px]">Pricing</h3>
+    <div className="bg-[#FAFAFA] py-12 px-4 sm:px-6 lg:px-8 w-full">
+      <div className="text-center mt-14 max-w-2xl mx-auto">
+        <h3 className="text-[#252B42] font-bold text-[32px] sm:text-[40px]">Pricing</h3>
         <p className="text-[#737373] text-[14px] mt-4">
-          Problems trying to resolve the conflict between <br />
+          Problems trying to resolve the conflict between <br className="hidden sm:block" />
           the two major realms of Classical physics: Newtonian mechanics
         </p>
       </div>
 
       {/* Toggle Section */}
       <div className="flex items-center justify-center mt-10 gap-4">
-        <h3 className="text-[#252B42] font-bold text-[16px]">Monthly</h3>
+        <h3 className={`text-[#252B42] font-bold text-[16px] ${isMonthly ? "opacity-100" : "opacity-50"}`}>Monthly</h3>
         <div
-          className={`w-14 h-7 flex items-center rounded-full p-1 cursor-pointer border border-[#23A6F0]`}
+          className={`w-14 h-7 flex items-center rounded-full p-1 cursor-pointer border border-[#23A6F0] relative`}
           onClick={() => setIsMonthly(!isMonthly)}
         >
           <div
-            className={`w-5 h-5 rounded-full shadow-md transform transition-transform ${
-              isMonthly ? "translate-x-7 bg-[#2DC071]" : "bg-[#D0D0D0]"
+            className={`w-5 h-5 rounded-full shadow-md transition-all duration-300 ease-in-out ${
+              isMonthly ? "bg-[#D0D0D0] translate-x-0" : "bg-[#2DC071] translate-x-7"
             }`}
           ></div>
         </div>
         <div className="flex items-center gap-2">
-          <h3 className="text-[#252B42] font-bold text-[16px]">Yearly</h3>
+          <h3 className={`text-[#252B42] font-bold text-[16px] ${!isMonthly ? "opacity-100" : "opacity-50"}`}>Yearly</h3>
           <div className="bg-[#B2E3FF] text-[#23A6F0] text-[14px] font-bold px-4 py-3 rounded-full">
             Save 25%
           </div>
@@ -38,9 +39,9 @@ const Plan = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 items-center">
         {/* Free Plan */}
-        <div className="border-2 border-[#23A6F0] rounded-lg p-6 bg-transparent shadow-md h-[664px] flex flex-col justify-between">
+        <div className="border-2 border-[#23A6F0] rounded-lg p-6 sm:p-10 bg-white shadow-md flex flex-col justify-between h-full min-h-[664px]">
           <div>
             <h3 className="font-bold text-[#252B42] text-[24px] text-center">
               FREE
@@ -51,13 +52,13 @@ const Plan = () => {
             <p className="text-[#23A6F0] font-bold text-[40px] text-center mt-5">
               0<span className="text-[#23A6F0] font-bold text-[24px]">$</span>{" "}
               <span className="text-[#8EC2F2] font-bold text-[14px]">
-                Per Month
+                Per {isMonthly ? "Month" : "Year"}
               </span>
             </p>
           </div>
-          <ul className="space-y-8">
+          <ul className="space-y-6 my-8">
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -65,7 +66,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -73,7 +74,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -81,7 +82,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#BDBDBD] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#BDBDBD] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -89,7 +90,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#BDBDBD] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#BDBDBD] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -97,13 +98,13 @@ const Plan = () => {
               </span>
             </li>
           </ul>
-          <button className="bg-[#252B42] text-[#FFFFFF] font-bold text-[14px] px-8 py-4 flex justify-center items-center rounded-md mx-auto hover:bg-gray-800">
+          <Link href="/signup" className="bg-[#252B42] text-[#FFFFFF] font-bold text-[14px] px-8 py-4 flex justify-center items-center rounded-md w-full hover:bg-gray-800 transition-colors mt-auto">
             Try for free
-          </button>
+          </Link>
         </div>
 
         {/* Standard Plan */}
-        <div className="border-2 border-[#23A6F0] rounded-lg p-6 bg-[#252B42] shadow-md h-[700px] flex flex-col justify-between">
+        <div className="border-2 border-[#23A6F0] rounded-lg p-6 sm:p-10 bg-[#252B42] shadow-xl flex flex-col justify-between h-full min-h-[700px] lg:-my-8 z-10 relative">
           <div>
             <h3 className="font-bold text-[#FFFFFF] text-[24px] text-center">
               Standard
@@ -112,18 +113,18 @@ const Plan = () => {
               Perfect for small teams and businesses looking for more features.
             </p>
             <p className="text-[#23A6F0] font-bold text-[40px] text-center mt-5">
-              9.99
+              {isMonthly ? "9.99" : "89.99"}
               <span className="text-[#23A6F0] font-bold text-[24px]">
                 $
               </span>{" "}
               <span className="text-[#8EC2F2] font-bold text-[14px]">
-                Per Month
+                Per {isMonthly ? "Month" : "Year"}
               </span>
             </p>
           </div>
-          <ul className="space-y-8">
+          <ul className="space-y-6 my-8">
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#FFFFFF] font-bold text-[14px]">
@@ -131,7 +132,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#FFFFFF] font-bold text-[14px]">
@@ -139,7 +140,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#FFFFFF] font-bold text-[14px]">
@@ -147,7 +148,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#FFFFFF] font-bold text-[14px]">
@@ -155,7 +156,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#BDBDBD] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#BDBDBD] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#FFFFFF] font-bold text-[14px]">
@@ -163,13 +164,13 @@ const Plan = () => {
               </span>
             </li>
           </ul>
-          <button className="bg-[#23A6F0] text-[#FFFFFF] font-bold text-[14px] px-8 py-4 flex justify-center items-center rounded-md mx-auto hover:bg-blue-500">
+          <Link href="/checkout?plan=standard" className="bg-[#23A6F0] text-[#FFFFFF] font-bold text-[14px] px-8 py-4 flex justify-center items-center rounded-md w-full hover:bg-blue-500 transition-colors mt-auto">
             Try for Standard
-          </button>
+          </Link>
         </div>
 
         {/* Premium Plan */}
-        <div className="border-2 border-[#23A6F0] rounded-lg p-6 bg-transparent shadow-md h-[664px] flex flex-col justify-between">
+        <div className="border-2 border-[#23A6F0] rounded-lg p-6 sm:p-10 bg-white shadow-md flex flex-col justify-between h-full min-h-[664px]">
           <div>
             <h3 className="font-bold text-[#252B42] text-[24px] text-center">
               PREMIUM
@@ -178,18 +179,18 @@ const Plan = () => {
               Perfect for growing businesses who need advanced features.
             </p>
             <p className="text-[#23A6F0] font-bold text-[40px] text-center mt-5">
-              29.99
+              {isMonthly ? "29.99" : "269.99"}
               <span className="text-[#23A6F0] font-bold text-[24px]">
                 $
               </span>{" "}
               <span className="text-[#8EC2F2] font-bold text-[14px]">
-                Per Month
+                Per {isMonthly ? "Month" : "Year"}
               </span>
             </p>
           </div>
-          <ul className="space-y-8">
+          <ul className="space-y-6 my-8">
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -197,7 +198,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -205,7 +206,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -213,7 +214,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -221,7 +222,7 @@ const Plan = () => {
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center">
+              <div className="w-[32px] h-[32px] bg-[#2DC071] rounded-full flex justify-center items-center flex-shrink-0">
                 <FiCheck className="text-white text-[14px]" />
               </div>
               <span className="text-[#252B42] font-bold text-[14px]">
@@ -229,14 +230,14 @@ const Plan = () => {
               </span>
             </li>
           </ul>
-          <button className="bg-[#23A6F0] text-[#FFFFFF] font-bold text-[14px] px-8 py-4 flex justify-center items-center rounded-md mx-auto hover:bg-blue-500">
+          <Link href="/checkout?plan=premium" className="bg-[#23A6F0] text-[#FFFFFF] font-bold text-[14px] px-8 py-4 flex justify-center items-center rounded-md w-full hover:bg-blue-500 transition-colors mt-auto">
             Try Premium
-          </button>
+          </Link>
         </div>
       </div>
 
-      <div>
-        <h3 className="text-[#252B42] text-[20px] mt-24 text-center sm:text-[24px]">
+      <div className="mt-20 sm:mt-32">
+        <h3 className="text-[#252B42] text-[20px] text-center sm:text-[24px]">
           Trusted By Over 4000 Big Companies
         </h3>
         <div className="flex justify-center items-center mt-6">
@@ -245,7 +246,7 @@ const Plan = () => {
             alt="companies"
             width={1054}
             height={175}
-            className="w-full max-w-[90%] sm:max-w-[1054px] h-auto"
+            className="w-full max-w-[90%] sm:max-w-[1054px] h-auto object-contain"
           />
         </div>
       </div>

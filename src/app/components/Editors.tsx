@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const EditorsPics = () => {
@@ -16,124 +17,132 @@ const EditorsPics = () => {
       {/* Desktop Layout */}
       <div className="hidden sm:flex justify-center items-start gap-6 mt-6">
         {/* Men Image with Fixed Size White Div */}
-        <div className="relative">
+        <Link href="/shop" className="relative group block">
           <Image
             src={"/men.png"}
             alt="men"
             width={509}
             height={500}
-            className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+            style={{ height: "auto" }}
+            className="cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
-          <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-yellow-700 flex items-center justify-center">
+          <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-yellow-700 flex items-center justify-center transition-colors">
             <span className="text-[#252B42] hover:text-3xl font-bold text-lg">MEN</span>
           </div>
-        </div>
+        </Link>
 
         {/* Women Image with Fixed Size White Div */}
-        <div className="relative">
+        <Link href="/shop" className="relative group block">
           <Image
             src={"/women.png"}
             alt="women"
             width={240}
             height={500}
-            className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+            style={{ height: "auto" }}
+            className="cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
-          <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-gray-300 flex items-center justify-center">
+          <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-gray-300 flex items-center justify-center transition-colors">
             <span className="text-[#252B42]  hover:text-3xl  font-bold text-lg">WOMEN</span>
           </div>
-        </div>
+        </Link>
 
         {/* Accessories and Kids Image with Fixed Size White Divs */}
         <div className="flex flex-col gap-6">
           {/* Accessories Image with Fixed Size White Div */}
-          <div className="relative">
+          <Link href="/shop" className="relative group block">
             <Image
               src={"/accessories.png"}
               alt="accessories"
               width={240}
               height={242}
-              className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+              style={{ height: "auto" }}
+              className="cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
             />
-            <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-orange-200 flex items-center justify-center">
+            <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-orange-200 flex items-center justify-center transition-colors">
               <span className="text-[#252B42]  hover:text-2xl  font-bold text-lg">ACCESSORIES</span>
             </div>
-          </div>
+          </Link>
 
           {/* Kids Image with Fixed Size White Div */}
-          <div className="relative">
+          <Link href="/shop" className="relative group block">
             <Image
               src={"/kids.png"}
               alt="kids"
               width={240}
               height={242}
-              className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+              style={{ height: "auto" }}
+              className="cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
             />
-            <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-amber-200 flex items-center justify-center">
+            <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white hover:bg-amber-200 flex items-center justify-center transition-colors">
               <span className="text-[#252B42]  hover:text-3xl  font-bold text-lg">KIDS</span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 
       {/* Mobile Layout */}
-      <div className="sm:hidden flex flex-col items-center justify-center gap-6 mt-6">
+      <div className="sm:hidden flex flex-col items-center justify-center gap-6 mt-6 px-4 w-full">
         {/* Men Image with Fixed Size White Div */}
-        <div className="relative w-[90%] sm:w-full">
+        <Link href="/shop" className="relative w-full max-w-[400px] group block">
           <Image
             src={"/men.png"}
             alt="men"
             width={509}
             height={500}
-            className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+            style={{ width: "auto", height: "auto" }}
+            className="w-full h-auto object-cover cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
           <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
             <span className="text-[#252B42]  hover:text-3xl  font-bold text-lg">MEN</span>
           </div>
-        </div>
+        </Link>
 
         {/* Women Image with Fixed Size White Div */}
-        <div className="relative w-[90%] sm:w-full ml-24">
+        <Link href="/shop" className="relative w-full max-w-[400px] group block">
           <Image
             src={"/women.png"}
             alt="women"
             width={240}
             height={500}
-            className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+            style={{ width: "auto", height: "auto" }}
+            className="w-full h-[500px] object-cover cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
           />
           <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
             <span className="text-[#252B42]  hover:text-3xl  font-bold text-lg">WOMEN</span>
           </div>
-        </div>
+        </Link>
 
         {/* Accessories and Kids Image with Fixed Size White Divs */}
-        <div className="flex flex-col gap-6 w-[90%] sm:w-full">
+        <div className="flex flex-col gap-6 w-full max-w-[400px]">
           {/* Accessories Image with Fixed Size White Div */}
-          <div className="relative ml-12">
+          <Link href="/shop" className="relative w-full group block">
             <Image
               src={"/accessories.png"}
               alt="accessories"
               width={240}
               height={242}
-              className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+              style={{ width: "auto", height: "auto" }}
+              className="w-full h-[242px] object-cover cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
             />
             <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
               <span className="text-[#252B42]  hover:text-lg  font-bold text-base">ACCESSORIES</span>
             </div>
-          </div>
+          </Link>
 
           {/* Kids Image with Fixed Size White Div */}
-          <div className="relative ml-12">
+          <Link href="/shop" className="relative w-full group block">
             <Image
               src={"/kids.png"}
               alt="kids"
               width={240}
               height={242}
-              className="cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105"
+              style={{ width: "auto", height: "auto" }}
+              className="w-full h-[242px] object-cover cursor-pointer transition-transform duration-300 ease-in-out group-hover:scale-105"
             />
             <div className="absolute bottom-4 left-4 w-[170px] h-[48px] bg-white flex items-center justify-center">
               <span className="text-[#252B42]  hover:text-3xl  font-bold text-lg">KIDS</span>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

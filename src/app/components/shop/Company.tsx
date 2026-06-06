@@ -10,6 +10,7 @@ const Company = () => {
             alt="companies"
             width={1054}
             height={175}
+            style={{ height: "auto" }}
             className="w-full max-w-[90%] sm:max-w-[1054px] h-auto"
           />
         </div>
